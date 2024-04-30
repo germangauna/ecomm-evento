@@ -168,8 +168,11 @@ body {
 }
 
 
+/* bioton eliminar producto */
 
-
+.delete-product {
+    cursor: pointer;
+}
 
 
 
