@@ -175,8 +175,19 @@ body {
 }
 
 
+/* carrito counter */
 
-
+.cantidad-carrito {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 4px;
+    top: 100px;
+    right: 1px;
+    position: absolute;
+    display: none;
+}
 
 
 

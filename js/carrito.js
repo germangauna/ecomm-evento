@@ -41,6 +41,7 @@ carrito.forEach((product) => {
                                 <h3>${product.nombre}</h3>
                                 <p>${product.precio}</p>
                                 <p>cantidad: ${product.cantidad} </p>
+                                <p>total: ${product.cantidad * product.precio} </p>
                                 `;
 
   modalContainer.append(carritoContent);     
@@ -58,7 +59,7 @@ eliminar.addEventListener("click", eliminarProducto);
 
 //creamos la funcion donde va a sumar al total
 
-const total = carrito.reduce((acc, el) => acc + el.precio, 0);
+const total = carrito.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
 
 //creamos el footer
 
@@ -81,5 +82,11 @@ const eliminarProducto = () => {
         return carritoId !== foundId;
     });
 
+    carritoCounter(); 
     pintarCarrito();
+
 };
+    const carritoCounter = () => {
+        cantidadCarrito.style.display ="block";
+        cantidadCarrito.innerText = carrito.length;
+    }

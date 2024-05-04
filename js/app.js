@@ -1,6 +1,7 @@
 let shopContent = document.getElementById("shopContent"); // div contenido de las cards
 let verCarrito = document.getElementById("verCarrito");// div del carrito
 let modalContainer = document.getElementById("modal-container")// div del modal
+let cantidadCarrito = document.getElementById("cantidadCarrito"); //div del numerito emoji
 
 let carrito = [];
 
@@ -47,6 +48,7 @@ productos.forEach((product) =>{
             cantidad: product.cantidad,
         });
     }
+        carritoCounter();    
        // console.log(carrito);
      });
 });
