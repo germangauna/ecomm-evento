@@ -13,6 +13,7 @@ productos.forEach((product) =>{
                         <img src="${product.img}">
                         <h3> ${product.nombre}</h3>
                         <p class="price"> ${product.precio}</p>
+                        
     `;
     shopContent.append(content);
 
@@ -26,13 +27,26 @@ productos.forEach((product) =>{
 
     //le pasamos un evento ("click ") en una funcion a traves del metodo push
      comprar.addEventListener("click", () => {
-        carrito.push({
+
+    //creamos la funcion para que cuadno se repita un  producto cambie la cantidad    
+        const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
+
+        if (repeat) {
+            carrito.map((prod) => {
+                if (prod.id === product.id) {
+                    prod.cantidad++
+                }
+            });
+        }else { 
+            
+            carrito.push({
             id: product.id,
             nombre: product.nombre,
             img: product.img,
             precio:product.precio,
+            cantidad: product.cantidad,
         });
-
+    }
        // console.log(carrito);
      });
 });

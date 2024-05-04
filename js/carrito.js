@@ -40,18 +40,20 @@ carrito.forEach((product) => {
                                 <img src="${product.img}">
                                 <h3>${product.nombre}</h3>
                                 <p>${product.precio}</p>
+                                <p>cantidad: ${product.cantidad} </p>
                                 `;
 
   modalContainer.append(carritoContent);     
   
-  // creacion el boton eliminar
+  // creacion el boton eliminar, que va a estar dentro de carritoContent
 
   let eliminar = document.createElement("span");
   eliminar.innerText = "✖️";
   eliminar.className = "delete-product";
   carritoContent.append(eliminar);
 
-  
+eliminar.addEventListener("click", eliminarProducto);
+
 });
 
 //creamos la funcion donde va a sumar al total
@@ -69,3 +71,15 @@ modalContainer.append(totalBuying);
 };
 
 verCarrito.addEventListener("click", pintarCarrito);
+
+// funcion del boton eliminar producto
+
+const eliminarProducto = () => {
+    const foundId = carrito.find((element) => element.id);
+
+    carrito = carrito.filter((carritoId) => {
+        return carritoId !== foundId;
+    });
+
+    pintarCarrito();
+};
