@@ -42,18 +42,29 @@ carrito.forEach((product) => {
                                 <p>${product.precio}</p>
                                 <p>cantidad: ${product.cantidad} </p>
                                 <p>total: ${product.cantidad * product.precio} </p>
+                                <span class= "delete-product"> ✖️ </span>
                                 `;
 
-  modalContainer.append(carritoContent);     
+  modalContainer.append(carritoContent);   
+  
+  
+  //nuevo boton eliminar
+
+    let eliminar = carritoContent.querySelector(".delete-product");
+
+    eliminar.addEventListener("click", () => {
+        eliminarProducto(product.id);
+    })
   
   // creacion el boton eliminar, que va a estar dentro de carritoContent
+  //boton mal hecho
 
-  let eliminar = document.createElement("span");
-  eliminar.innerText = "✖️";
-  eliminar.className = "delete-product";
-  carritoContent.append(eliminar);
+//   let eliminar = document.createElement("span");
+//   eliminar.innerText = "✖️";
+//   eliminar.className = "delete-product";
+//   carritoContent.append(eliminar);
 
-eliminar.addEventListener("click", eliminarProducto);
+// eliminar.addEventListener("click", eliminarProducto);
 
 });
 
@@ -75,8 +86,8 @@ verCarrito.addEventListener("click", pintarCarrito);
 
 // funcion del boton eliminar producto
 
-const eliminarProducto = () => {
-    const foundId = carrito.find((element) => element.id);
+const eliminarProducto = (id) => {
+    const foundId = carrito.find((element) => element.id === id);
 
     carrito = carrito.filter((carritoId) => {
         return carritoId !== foundId;
