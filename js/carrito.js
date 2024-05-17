@@ -40,13 +40,37 @@ carrito.forEach((product) => {
                                 <img src="${product.img}">
                                 <h3>${product.nombre}</h3>
                                 <p>${product.precio}</p>
+                                <span class="restar" > - </span>
                                 <p>cantidad: ${product.cantidad} </p>
+                                <span class="sumar" > + </span>
                                 <p>total: ${product.cantidad * product.precio} </p>
                                 <span class= "delete-product"> ✖️ </span>
                                 `;
 
   modalContainer.append(carritoContent);   
+
+// boton de restar y sumar cantidar en el carrito
+//restar
+
+let restar = carritoContent.querySelector(".restar");
+
+restar.addEventListener("click", () => {
+    if (product.cantidad !== 1) {
+        product.cantidad--; 
+    }
+    saveLocal();
+    pintarCarrito();
+})
   
+//sumar
+
+let sumar = carritoContent.querySelector(".sumar");
+
+sumar.addEventListener("click", () => {
+        product.cantidad++; 
+        saveLocal();
+        pintarCarrito();
+})
   
   //nuevo boton eliminar
 

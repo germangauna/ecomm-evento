@@ -197,8 +197,13 @@ body {
 }
 
 
+.sumar {
+    cursor: pointer;
+}
 
-
+.restar {
+    cursor: pointer;
+}
 
 
 
