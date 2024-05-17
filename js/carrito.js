@@ -92,12 +92,20 @@ const eliminarProducto = (id) => {
     carrito = carrito.filter((carritoId) => {
         return carritoId !== foundId;
     });
-
-    carritoCounter(); 
+    carritoCounter();
+    saveLocal();
     pintarCarrito();
 
+    
 };
-    const carritoCounter = () => {
-        cantidadCarrito.style.display ="block";
-        cantidadCarrito.innerText = carrito.length;
-    }
+const carritoCounter = () => {
+    cantidadCarrito.style.display ="block";
+    
+    const carritoLength = carrito.length;
+    
+    localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
+    
+    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
+};
+
+carritoCounter(); 

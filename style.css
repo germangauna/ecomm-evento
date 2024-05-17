@@ -5,6 +5,12 @@ body {
 /* navbar */
 
 .nav-container {
+    position: sticky;
+    z-index: 3;
+    top: 0;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
     height: 12vh;
@@ -22,7 +28,8 @@ body {
 
 .ver-carrito {
     font-size: 25px;
-    text-align: end;
+    margin-right: 20px;
+    margin-top: 3.5vh;
     cursor: pointer;
 }
 
@@ -183,7 +190,7 @@ body {
     border-radius: 50%;
     font-size: 12px;
     padding: 4px;
-    top: 100px;
+    top: 45px;
     right: 1px;
     position: absolute;
     display: none;

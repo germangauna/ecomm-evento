@@ -3,7 +3,7 @@ let verCarrito = document.getElementById("verCarrito");// div del carrito
 let modalContainer = document.getElementById("modal-container")// div del modal
 let cantidadCarrito = document.getElementById("cantidadCarrito"); //div del numerito emoji
 
-let carrito = [];
+let carrito = JSON.parse( localStorage.getItem("carrito")) || [];
 
 //creamos funcion para que aprescan los productos en el DOM
 
@@ -47,13 +47,18 @@ productos.forEach((product) =>{
             precio:product.precio,
             cantidad: product.cantidad,
         });
-    }
+
+        console.log(carrito.length);
+        saveLocal();
         carritoCounter();    
-       // console.log(carrito);
+        saveLocal();
+       }
      });
 });
 
-
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
 
 
 
